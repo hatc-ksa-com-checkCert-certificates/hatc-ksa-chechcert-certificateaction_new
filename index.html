@@ -50,7 +50,7 @@
             display: block;
             width: 100%;
             line-height: 1.5;
-            white-space: nowrap; /* ডেস্কটপে এক লাইনে রাখবে */
+            white-space: nowrap; 
         }
         
         .top-divider {
@@ -165,7 +165,7 @@
         /* 📱 Mobile CSS Optimization */
         @media only screen and (max-width: 768px) {
             .wrapper { 
-                padding: 5px 5px !important; 
+                padding: 5px 6px !important; 
             }
             .top-logo {
                 max-width: 100% !important;
@@ -173,14 +173,17 @@
                 margin: 10px auto !important;
             }
             
-            /* 🎯 মোবাইল স্ক্রিনে লেখাকে জোরপূর্বক ১ লাইনে রাখার রুলস */
+            /* 🎯 লেখা না কেটে এবং নিচে না নেমে স্ক্রিন অনুযায়ী ফন্ট সাইজ অটো ছোট হয়ে এক লাইনে থাকার নিয়ম */
             .instruction {
-                font-size: 2.3vw !important; /* স্ক্রিনের চওড়া অনুযায়ী ফন্ট অটো ছোট-বড় হবে */
-                white-space: nowrap !important; /* কোনোভাবেই ভেঙে ২ লাইনে যাবে না */
-                overflow: hidden !important;
-                text-overflow: clip !important;
+                font-size: 2.1vw !important; /* স্ক্রিনের প্রস্থ অনুযায়ী লেখাটি অটো ছোট হবে যেন এক লাইনে ধরে যায় */
+                white-space: nowrap !important; /* লাইন কখনোই ভাঙবে না বা নিচে নামবে না */
+                display: block !important;
+                width: 100% !important;
                 padding: 0 !important;
-                margin-bottom: 15px !important;
+                margin-top: 5px !important;
+                margin-bottom: 12px !important;
+                overflow: visible !important; /* লেখা কাটবে না */
+                text-overflow: unset !important;
             }
             
             .search-box { margin-bottom: 25px; font-size: 18px; }
@@ -287,7 +290,7 @@
     </div>
 
     <script>
-        // ⚠️ আপনার Apps Script Web App URL টি নিচের উদ্ধৃতি চিহ্নের ভেতরে বসাবেন
+        // ⚠️ আপনার Apps Script Web App URL টি নিচের ফাঁকা ডাবল কোটেশনের ("") ভেতরে বসিয়ে দেবেন
         const appsScriptUrl = "https://script.google.com/macros/s/AKfycbylJixwOEQuwngTgUZcrtlI02vPVno2bf5D3ia16iBzdgtlkGg7l7Om5k4rPUDmQH_J/exec";
 
         function formatDate(dateStr) {
