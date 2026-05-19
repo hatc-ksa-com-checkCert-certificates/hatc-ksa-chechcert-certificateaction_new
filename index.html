@@ -106,11 +106,11 @@
         }
         
         .result-table tr { 
-            border-bottom: none !important; /* পুরো লাইনের আন্ডারলাইন একদম বন্ধ */
+            border-bottom: none !important; 
         } 
         
         .result-table td { 
-            padding: 15px 0px; 
+            padding: 14px 0px; 
             font-size: 22px; 
             color: #000; 
             vertical-align: bottom; 
@@ -119,22 +119,31 @@
             text-align: left !important; 
         }
         
-        /* 🎯 বাম ও ডান পাশের লেখার উইডথ এবং গ্যাপ আরও কমিয়ে কাছাকাছি আনা হলো */
+        /* 🎯 বাম পাশের কলামের টেক্সট ব্লক (সবচেয়ে বড় লেখা 'Certificate Type' অনুযায়ী উইডথ ফিক্সড) */
+        .left-underline-block {
+            display: block;
+            width: 175px !important; /* বাম পাশের সব আন্ডারলাইন এই মাপে লক থাকবে */
+            border-bottom: 2px solid #808080 !important;
+            padding-bottom: 3px;
+            white-space: nowrap;
+        } 
+        
+        /* 🎯 ডান পাশের কলামের টেক্সট ব্লক (সবচেয়ে বড় ভ্যালুর সাইজ অনুযায়ী উইডথ ফিক্সড ও কাছাকাছি আনা) */
+        .right-underline-block {
+            display: block;
+            width: 480px !important; /* ডান পাশের সব আন্ডারলাইন এই মাপে লক থাকবে */
+            border-bottom: 2px solid #808080 !important;
+            padding-bottom: 3px;
+            word-break: break-word;
+        }
+
+        /* কলাম দুটির মাঝখানের গ্যাপ একদম পারফেক্টলি কম রাখার জন্য */
         .result-table td.field-name { 
-            width: 160px !important; /* উইডথ কমিয়ে কাছাকাছি আনা হয়েছে */
-            padding-right: 15px !important;
+            padding-right: 15px !important; /* লেখা যেন লেগে না যায় সেজন্য পারফেক্ট গ্যাপ */
         } 
         
         .result-table td.field-value { 
-            width: 450px !important; 
-            word-break: break-word; 
-        }
-
-        /* 📏 🎯 প্রতিটি লেখার নিচে আলাদা আলাদা সাইজের ছাই রঙের আন্ডারলাইন দেওয়ার মেইন ট্রিক */
-        .text-underline {
-            display: inline-block;
-            border-bottom: 2px solid #808080 !important;
-            padding-bottom: 3px;
+            padding-left: 0px !important; 
         }
         
         .duration-container { display: inline-flex; gap: 10px; text-align: left; flex-wrap: wrap; font-weight: normal !important; }
@@ -213,33 +222,33 @@
             <div class="inner-table-wrapper">
                 <table class="result-table">
                     <tr>
-                        <td class="field-name"><span class="text-underline">C. No</span></td>
-                        <td class="field-value"><span class="text-underline" id="r_cno"></span></td>
+                        <td class="field-name"><span class="left-underline-block">C. No</span></td>
+                        <td class="field-value"><span class="right-underline-block" id="r_cno"></span></td>
                     </tr>
                     <tr>
-                        <td class="field-name"><span class="text-underline">Name</span></td>
-                        <td class="field-value"><span class="text-underline" id="r_name"></span></td>
+                        <td class="field-name"><span class="left-underline-block">Name</span></td>
+                        <td class="field-value"><span class="right-underline-block" id="r_name"></span></td>
                     </tr>
                     <tr>
-                        <td class="field-name"><span class="text-underline">ID/PP NO</span></td>
-                        <td class="field-value"><span class="text-underline" id="r_id"></span></td>
+                        <td class="field-name"><span class="left-underline-block">ID/PP NO</span></td>
+                        <td class="field-value"><span class="right-underline-block" id="r_id"></span></td>
                     </tr>
                     <tr>
-                        <td class="field-name"><span class="text-underline">Date of Birth</span></td>
-                        <td class="field-value"><span class="text-underline" id="r_dob"></span></td>
+                        <td class="field-name"><span class="left-underline-block">Date of Birth</span></td>
+                        <td class="field-value"><span class="right-underline-block" id="r_dob"></span></td>
                     </tr>
                     <tr>
-                        <td class="field-name"><span class="text-underline">Course Title</span></td>
-                        <td class="field-value"><span class="text-underline" id="r_title"></span></td>
+                        <td class="field-name"><span class="left-underline-block">Course Title</span></td>
+                        <td class="field-value"><span class="right-underline-block" id="r_title"></span></td>
                     </tr>
                     <tr>
-                        <td class="field-name"><span class="text-underline">Course Type</span></td>
-                        <td class="field-value"><span class="text-underline" id="r_type"></span></td>
+                        <td class="field-name"><span class="left-underline-block">Course Type</span></td>
+                        <td class="field-value"><span class="right-underline-block" id="r_type"></span></td>
                     </tr>
                     <tr>
-                        <td class="field-name"><span class="text-underline">Duration</span></td>
+                        <td class="field-name"><span class="left-underline-block">Duration</span></td>
                         <td class="field-value">
-                            <span class="text-underline">
+                            <span class="right-underline-block">
                                 <div class="duration-container">
                                     <span id="r_from"></span>
                                     <span>To</span>
@@ -249,16 +258,16 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="field-name"><span class="text-underline">Nationality</span></td>
-                        <td class="field-value"><span class="text-underline" id="r_nation"></span></td>
+                        <td class="field-name"><span class="left-underline-block">Nationality</span></td>
+                        <td class="field-value"><span class="right-underline-block" id="r_nation"></span></td>
                     </tr>
                     <tr>
-                        <td class="field-name"><span class="text-underline">Company</span></td>
-                        <td class="field-value"><span class="text-underline" id="r_comp"></span></td>
+                        <td class="field-name"><span class="left-underline-block">Company</span></td>
+                        <td class="field-value"><span class="right-underline-block" id="r_comp"></span></td>
                     </tr>
                     <tr>
-                        <td class="field-name"><span class="text-underline">Certificate Type</span></td>
-                        <td class="field-value"><span class="text-underline" id="r_cert_type"></span></td>
+                        <td class="field-name"><span class="left-underline-block">Certificate Type</span></td>
+                        <td class="field-value"><span class="right-underline-block" id="r_cert_type"></span></td>
                     </tr>
                 </table>
             </div>
